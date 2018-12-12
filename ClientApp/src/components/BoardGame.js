@@ -64,12 +64,10 @@ export class BoardGame extends Component{
 
     ///////call service save data
     var formData = new FormData();
-    var date = new Date();
-    var dateValue = date.getDate() + "/" + (date.getMonth() +1) + "/" + date.getFullYear()
-
+    
     formData.append("IdStatistics", 0);
     formData.append("Playername", winer);
-    formData.append("DateSave", dateValue);
+    formData.append("DateSave", ((new Date()).toLocaleDateString()));
       fetch('api/StartGame/Create', {  
               method: 'POST',  
               body: formData,  
