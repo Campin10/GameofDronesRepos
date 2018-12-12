@@ -7,20 +7,29 @@ using Gameofdrones.Models;
 namespace Gameofdrones.Controllers
 {
 
+
     [Route("api/[controller]")]
     public class StartGameController : Controller
     {
-        GameofDronesAccessLayer objGame = new GameofDronesAccessLayer();
+        private readonly GameofDronesDBContext _context;
+
+        public StartGameController(GameofDronesDBContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet("[action]")]
         public IEnumerable<GameStatistics> ListStatistics()
         {
-            return objGame.GetAllStatistics();
+            return _context.GameStatistics.ToList();
         }
         [HttpPost("[action]")]
         //[Route("api/StartGame/Create")]
         public int Create(GameStatistics gameRecord)
         {
-           return objGame.AddRecordGame(gameRecord);            
+           _context.Add(gameRecord);
+            _context.SaveChanges();
+            return 1;        
         }    
      }
 

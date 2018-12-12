@@ -29,10 +29,11 @@ export class Home extends Component {
     return (
       <div>
         <form className="col-md-offset-3 col-md-6">
-        <h1 className="title">Enter Player names</h1>
+        <h1 className="texts">Enter Player names</h1>
        <div className="form-group">
        <input
-          className="form-control"
+          maxLength="15"
+          className="form-control texts"
           placeholder="Player 1"
           onChange={(ev) => this.handleChangeField('playerone', ev)}
           value={playerone}
@@ -40,7 +41,8 @@ export class Home extends Component {
        </div>
        <div className="form-group">
         <input
-          className="form-control"
+          maxLength="15"
+          className="form-control texts"
           placeholder="Player 2"
           onChange={(ev) => this.handleChangeField('playertwo', ev)}
           value={playertwo}

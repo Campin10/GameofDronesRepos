@@ -16,11 +16,11 @@ export class StatisticData extends Component {
   static renderForecastsTable(forecasts) {
     return (
 <div className="col-sm-6 col-sm-offset-3" >
-<table className='table table-bordered'>
+<table className='table table-bordered texts'>
         <thead>
           <tr>
-            <th>Player</th>
-            <th>Date</th>
+            <th className="texts">Player</th>
+            <th className="texts">Date</th>
           </tr>
         </thead>
         <tbody>
@@ -39,12 +39,12 @@ export class StatisticData extends Component {
 
   render() {
     let contents = this.state.loading
-      ? <p className="title"><em>Loading...</em></p>
+      ? <p className="texts"><em>Loading...</em></p>
       : StatisticData.renderForecastsTable(this.state.forecasts);
 
     return (
       <div>
-        <h1 className="title">Game statistics</h1>
+        <h1 className="texts">Game statistics</h1>
         {contents}
       </div>
     );

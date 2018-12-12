@@ -114,8 +114,8 @@ export class BoardGame extends Component{
         <div>
         <TableRounds names={this.props.names} TableRoundsData={this.state.TableRoundsData}/>
            <form className="col-sm-6 col-sm-offset-3">
-          <h1 className="title">Round {this.state.currentRound} </h1>
-          <h1 className="title">{this.state.currentPlayer}</h1>
+          <h1 className="texts">Round {this.state.currentRound} </h1>
+          <h1 className="texts">{this.state.currentPlayer}</h1>
           <div>
               <div className="col-sm-4  col-xs-4  img-select">
                  <img className="img-responsive" src={rock} alt="Rock"
@@ -131,7 +131,7 @@ export class BoardGame extends Component{
           </div>
           </div>
           <div className="col-md-offset-3 col-md-6 col-xs-12">
-          <h2 className="title">{this.state.move != '' ? this.state.move : "Move"}</h2>
+          <h2 className="texts">{this.state.move != '' ? this.state.move : "Move"}</h2>
           </div>
           <input type="button allbutton" disabled={this.state.move === ""} className="btn btn-primary col-md-offset-3 col-md-6 col-xs-12" value="OK"
            onClick={() => this.handleNext()} /> 

@@ -13,10 +13,10 @@ export class Finish extends Component{
     return (
         <div>
           <form className="col-sm-8 col-sm-offset-2">
-          <h1 className="title">We have a Result!!!</h1>
-          <h1 className="title">{this.props.winer}</h1>
+          <h1 className="texts">We have a Result!!!</h1>
+          <h1 className="texts">{this.props.winer}</h1>
           <div>
-              <div className="col-sm-6 col-sm-offset-3 img-select">
+              <div className="col-sm-4 col-sm-offset-4 img-select">
                  <img className="img-responsive" src={FinishImg} alt="Rock"/>
               </div>
              

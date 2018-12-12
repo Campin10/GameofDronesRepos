@@ -21,9 +21,7 @@ namespace Gameofdrones.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:planestrategico.database.windows.net,1433;Initial Catalog=GameofDronesDB;Persist Security Info=False;User ID=admin_pendb;Password=Finish.2018*;MultipleActiveResultSets=False;Encrypt=True");
-            }
+             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
