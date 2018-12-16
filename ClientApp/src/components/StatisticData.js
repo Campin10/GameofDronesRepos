@@ -20,6 +20,7 @@ export class StatisticData extends Component {
         <thead>
           <tr>
             <th className="texts">Player</th>
+            <th className="texts">Result</th>
             <th className="texts">Date</th>
           </tr>
         </thead>
@@ -27,6 +28,7 @@ export class StatisticData extends Component {
           {forecasts.map(forecast =>
             <tr key={forecast.idStatistics}>
               <td>{forecast.playername}</td>
+              <td>{forecast.resultGame}</td>
               <td>{forecast.dateSave}</td>
             </tr>
           )}

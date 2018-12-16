@@ -24,7 +24,6 @@ namespace Gameofdrones.Controllers
             return _context.GameStatistics.ToList();
         }
         [HttpPost("[action]")]
-        //[Route("api/StartGame/Create")]
         public int Create(GameStatistics gameRecord)
         {
            _context.Add(gameRecord);

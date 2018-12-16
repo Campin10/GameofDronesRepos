@@ -28,12 +28,12 @@ export class Home extends Component {
     const { playerone, playertwo} = this.state;
     return (
       <div>
-        <form className="col-md-offset-3 col-md-6">
+        <form className="col-md-offset-4 col-md-4">
         <h1 className="texts">Enter Player names</h1>
        <div className="form-group">
        <input
           maxLength="15"
-          className="form-control texts"
+          className="form-control texts input-lg"
           placeholder="Player 1"
           onChange={(ev) => this.handleChangeField('playerone', ev)}
           value={playerone}
@@ -42,13 +42,13 @@ export class Home extends Component {
        <div className="form-group">
         <input
           maxLength="15"
-          className="form-control texts"
+          className="form-control texts input-lg"
           placeholder="Player 2"
           onChange={(ev) => this.handleChangeField('playertwo', ev)}
           value={playertwo}
         />       
         </div>
-        <input type="button" className="btn btn-primary col-md-offset-3 col-md-6 col-xs-12" value="Start"
+        <input type="button" className="btn btn-primary col-md-offset-3 col-md-6 col-xs-12  btn-lg" value="Start"
          onClick={() => this.handleStartGame()} 
          disabled={this.state.playerone.trim() === "" || this.state.playertwo.trim() === ""}
          /> 
@@ -65,3 +65,4 @@ export class Home extends Component {
     }
   }
 }
+

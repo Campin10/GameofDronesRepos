@@ -21,7 +21,7 @@ export class Finish extends Component{
               </div>
              
           </div>
-          <input type="button" className="btn btn-primary col-md-offset-3 col-md-6 col-xs-12" value="Play Again"
+          <input type="button" className="btn btn-primary btn-lg col-md-offset-3 col-md-6 col-xs-12" value="Play Again"
            onClick={() => this.handlePlayAgain()} /> 
           </form>
         </div>

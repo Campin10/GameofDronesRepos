@@ -46,10 +46,10 @@ export class BoardGame extends Component{
         }
       }
   }
-  
+
   updateTableRaunds()
   {
-    this.state.TableRoundsData[this.PlayerMove.winer] = this.state.TableRoundsData[this.PlayerMove.winer] + 1
+    this.state.TableRoundsData[this.PlayerMove.winer] = this.state.TableRoundsData[this.PlayerMove.winer] + 1;
   }
 
   finishGame()
@@ -64,10 +64,10 @@ export class BoardGame extends Component{
 
     ///////call service save data
     var formData = new FormData();
-    
     formData.append("IdStatistics", 0);
     formData.append("Playername", winer);
     formData.append("DateSave", ((new Date()).toLocaleDateString()));
+    formData.append("ResultGame", ( `${this.state.TableRoundsData[winer]}  - ${this.state.TableRoundsData[winer !== this.props.names.playerone ? this.props.names.playerone : this.props.names.playertwo]}`));
       fetch('api/StartGame/Create', {  
               method: 'POST',  
               body: formData,  
@@ -111,7 +111,7 @@ export class BoardGame extends Component{
     return (
         <div>
         <TableRounds names={this.props.names} TableRoundsData={this.state.TableRoundsData}/>
-           <form className="col-sm-6 col-sm-offset-3">
+           <form className="col-sm-6 col-sm-offset-3 ">
           <h1 className="texts">Round {this.state.currentRound} </h1>
           <h1 className="texts">{this.state.currentPlayer}</h1>
           <div>
@@ -129,9 +129,9 @@ export class BoardGame extends Component{
           </div>
           </div>
           <div className="col-md-offset-3 col-md-6 col-xs-12">
-          <h2 className="texts">{this.state.move != '' ? this.state.move : "Move"}</h2>
+          <h2 className="texts">{this.state.move !== '' ? this.state.move : "Move"}</h2>
           </div>
-          <input type="button allbutton" disabled={this.state.move === ""} className="btn btn-primary col-md-offset-3 col-md-6 col-xs-12" value="OK"
+          <input type="button" disabled={this.state.move === ""} className="btn btn-primary col-md-offset-3 col-md-6 col-xs-12 btn-lg" value="OK"
            onClick={() => this.handleNext()} /> 
           </form>
         </div>
