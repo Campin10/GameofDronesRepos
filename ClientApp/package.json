@@ -1,16 +1,22 @@
 {
-  "name": "Gameofdrones",
+  "name": "gameofdrones",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ajv": "^6.6.1",
     "bootstrap": "^3.3.7",
+    "macaddress": "^0.2.9",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",
+    "react-dev-utils": "^6.1.1",
     "react-dom": "^16.0.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "rimraf": "^2.6.2"
+    "react-scripts": "^1.0.17",
+    "rimraf": "^2.6.2",
+    "stringstream": "^1.0.0",
+    "tough-cookie": "^2.5.0",
+    "url-parse": "^1.4.4"
   },
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
