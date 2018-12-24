@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Gameofdrones.Models
+﻿namespace Gameofdrones.Models
 {
     public partial class GameStatistics
     {
