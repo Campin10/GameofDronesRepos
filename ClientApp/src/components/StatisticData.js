@@ -35,15 +35,12 @@ export class StatisticData extends Component {
         </tbody>
       </table>
 </div>
-
-    );
-  }
+);}
 
   render() {
     let contents = this.state.loading
       ? <p className="texts"><em>Loading...</em></p>
       : StatisticData.renderForecastsTable(this.state.forecasts);
-
     return (
       <div>
         <h1 className="texts">Game statistics</h1>

@@ -4,6 +4,7 @@ import paper from '../assets/images/paper.jpg';
 import scissors from '../assets/images/scissors.png';
 import { Finish } from './Finish';
 import {TableRounds} from './TableRound';
+import * as store from '../store'
 
 export class BoardGame extends Component{ 
 
@@ -30,7 +31,7 @@ export class BoardGame extends Component{
             move: ''
         });    
         if(this.state.turn === 2){
-            let wn = (this.getWinerRound())
+            let wn = (store.getWinerRound(this.PlayerMove.playeroneMove,this.PlayerMove.playertwoMove))
             this.PlayerMove.winer = (wn === 1 ? this.props.names.playerone : wn === 2 ? this.props.names.playertwo : 0)
             this.updateTableRaunds()
             this.gameMoves = this.state.gameMoves.push(this.PlayerMove)
@@ -39,7 +40,7 @@ export class BoardGame extends Component{
                 turn: 1,
                 gameMoves: this.state.gameMoves
             }); 
-            if(this.state.currentRound === 3)
+            if(this.state.currentRound === 3 || store.getScore(this.state.TableRoundsData,this.props).maxScore == 2)
             {
                 this.finishGame();
             }
@@ -54,14 +55,7 @@ export class BoardGame extends Component{
 
   finishGame()
   {
-    let playerOneWins = this.state.TableRoundsData[this.props.names.playerone]
-    let playerTwoWins = this.state.TableRoundsData[this.props.names.playertwo]
-    var winer = "Empate"
-    if(playerOneWins > playerTwoWins)
-    {   winer = this.props.names.playerone  }
-    if(playerOneWins < playerTwoWins)
-    {   winer = this.props.names.playertwo }
-
+    let winer = store.getScore(this.state.TableRoundsData,this.props).winer
     ///////call service save data
     var formData = new FormData();
     formData.append("IdStatistics", 0);
@@ -85,22 +79,7 @@ export class BoardGame extends Component{
         winer: winer
     }); 
   }
-    
-  getWinerRound(){
-    if(this.PlayerMove.playeroneMove === "Rock" && this.PlayerMove.playertwoMove === "Scissors")
-    { return 1 }
-    if(this.PlayerMove.playeroneMove === "Scissors" && this.PlayerMove.playertwoMove === "Rock")
-    { return 2 }
-    if(this.PlayerMove.playeroneMove === "Paper" && this.PlayerMove.playertwoMove === "Rock")
-    { return 1 }
-    if(this.PlayerMove.playeroneMove === "Rock" && this.PlayerMove.playertwoMove === "Paper")
-    { return 2 }
-    if(this.PlayerMove.playeroneMove === "Scissors" && this.PlayerMove.playertwoMove === "Paper")
-    { return 1 }
-    if(this.PlayerMove.playeroneMove === "Paper" && this.PlayerMove.playertwoMove === "Scissors")
-    { return 2 }
-  }
-
+  
   handleChangeRadio(value) {
     this.setState({
         move: value

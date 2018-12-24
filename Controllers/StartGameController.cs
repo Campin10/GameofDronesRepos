@@ -19,10 +19,7 @@ namespace Gameofdrones.Controllers
         }
 
         [HttpGet("[action]")]
-        public IEnumerable<GameStatistics> ListStatistics()
-        {
-            return _context.GameStatistics.ToList();
-        }
+        public IEnumerable<GameStatistics> ListStatistics() => _context.GameStatistics.ToList();
         [HttpPost("[action]")]
         public int Create(GameStatistics gameRecord)
         {
