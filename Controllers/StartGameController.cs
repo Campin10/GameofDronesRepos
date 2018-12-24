@@ -8,10 +8,7 @@ namespace Gameofdrones.Controllers
     public class StartGameController : Controller
     {
         private readonly GameofDronesDBContext _context;
-        public StartGameController(GameofDronesDBContext context)
-        {
-            _context = context;
-        }
+        public StartGameController(GameofDronesDBContext context) => _context = context;
 
         [HttpGet("[action]")]
         public IEnumerable<GameStatistics> ListStatistics() => _context.GameStatistics.ToList();
