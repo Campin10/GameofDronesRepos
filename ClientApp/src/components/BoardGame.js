@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import rock from '../assets/images/rock.png';
-import paper from '../assets/images/paper.jpg';
-import scissors from '../assets/images/scissors.png';
-import { Finish } from './Finish';
-import {TableRounds} from './TableRound';
+import React, { Component } from 'react'
+import rock from '../assets/images/rock.png'
+import paper from '../assets/images/paper.jpg'
+import scissors from '../assets/images/scissors.png'
+import { Finish } from './Finish'
+import {TableRounds} from './TableRound'
 import * as store from '../store'
+import * as dataActions from '../dataActions'
 
 export class BoardGame extends Component{ 
 
@@ -62,13 +63,7 @@ export class BoardGame extends Component{
     formData.append("Playername", winer);
     formData.append("DateSave", ((new Date()).toLocaleDateString()));
     formData.append("ResultGame", ( `${this.state.TableRoundsData[winer]}  - ${this.state.TableRoundsData[winer !== this.props.names.playerone ? this.props.names.playerone : this.props.names.playertwo]}`));
-      fetch('api/StartGame/Create', {  
-              method: 'POST',  
-              body: formData,  
-          }).then((response) => response.json())  
-              .then((responseJson) => {  
-                  console.log(responseJson);  
-              })  
+    dataActions.setDataWiner(formData)
     /////////
     winer = `${winer} is the new EMPEROR!`
     this.setState({
