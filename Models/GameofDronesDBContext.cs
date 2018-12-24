@@ -6,20 +6,11 @@ namespace Gameofdrones.Models
 {
     public partial class GameofDronesDBContext : DbContext
     {
-        public GameofDronesDBContext()
-        {
-        }
-
         public GameofDronesDBContext(DbContextOptions<GameofDronesDBContext> options)
             : base(options)
         {
         }
-
         public virtual DbSet<GameStatistics> GameStatistics { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

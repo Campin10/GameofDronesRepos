@@ -6,13 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Gameofdrones.Models;
 namespace Gameofdrones.Controllers
 {
-
-
     [Route("api/[controller]")]
     public class StartGameController : Controller
     {
         private readonly GameofDronesDBContext _context;
-
         public StartGameController(GameofDronesDBContext context)
         {
             _context = context;
@@ -28,6 +25,4 @@ namespace Gameofdrones.Controllers
             return 1;        
         }    
      }
-
-
 }

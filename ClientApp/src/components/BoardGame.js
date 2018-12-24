@@ -8,7 +8,6 @@ import * as store from '../store'
 import * as dataActions from '../dataActions'
 
 export class BoardGame extends Component{ 
-
   constructor(props) {
     super(props);
     this.state = { move: '',
@@ -114,9 +113,7 @@ export class BoardGame extends Component{
 
   FinishView()
   {
-      return(
-         <Finish winer={this.state.winer}/>
-    );
+      return(<Finish winer={this.state.winer}/>);
   }
 
   render() {
@@ -128,5 +125,4 @@ export class BoardGame extends Component{
       return this.boardGame()
    }
   }
-
 }
